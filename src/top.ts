@@ -66,7 +66,7 @@ export async function topNodes(api: CoreV1Api): Promise<NodeStatus[]> {
         pods = pods.filter(
             (pod: V1Pod) =>
                 // @ts-ignore
-                pod.status!.phase === 'Running' || pod.status!.phase === V1PodStatus.PhaseEnum.Running,
+                pod.status!.phase === 'Running' || pod.status!.phase === V1PodStatus?.PhaseEnum?.Running,
         );
         pods.forEach((pod: V1Pod) => {
             const cpuTotal = totalCPU(pod);
